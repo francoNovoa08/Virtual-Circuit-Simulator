@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Circuit Simulator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>Virtual Circuit Simulator</h1>
+    <div id="components" style="margin-bottom: 20px;">
+        <!-- Components available for the circuit -->
+        <div class="component" draggable="true" data-type="battery">
+            <div>Battery</div>
+            <div><img src="/static/images/Battery.png" alt="Battery" height="100px"></div>
+        </div>
+        <div class="component" draggable="true" data-type="resistor">
+            <div>Resistor</div>
+            <div><img src="/static/images/Resistor.png" alt="Resistor" height="100px"></div>
+        </div>
+        <div class="component" draggable="true" data-type="lamp">
+            <div>Lamp</div>
+            <div><img src="/static/images/Lamp.png" alt="Lamp" height="100px"></div>
+        </div>
+        <div class="component" draggable="true" data-type="capacitor">
+            <div>Capacitor</div>
+            <div><img src="/static/images/Capacitor.png" alt="Lamp" height="100px"></div>
+        </div>
+        <div class="component" data-type="trash-bin">
+            <div>Remove</div>
+            <div><img src="/static/images/Trash bin.png" alt="Trash bin" height="100px"></div>
+        </div>
+    </div>
+
+    <div id="drag-text">Place components here:</div>
+    <div id="circuit-builder">
+        <!-- Components will be dragged here -->
+    </div>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <form id="save-form" action="/save-circuit" method="POST">
+        <input type="hidden" id="canvas-data" name="canvas-data">
+        <button type="button" id="save-circuit">Save Circuit</button>
+    </form>
+    <script src="/static/script.js"></script>
+</body>
+</html>
